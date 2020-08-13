@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Galeri</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"></link>
+    </h:head>
+    
+    <h:body style="background-color: #aad3dc;">
+        <h:form>
+
+            <nav class="navbar navbar-expand-sm navbar-light bg-info m-0 sticky-top">
+                <a class="navbar-brand" href="#">
+                    <img src="https://cdn.dribbble.com/users/274427/screenshots/3999728/dribble_04.jpg" alt="logo" style="width:100px;"></img>
+                </a>
+                <h:link class="navbar-brand" style="color: white;" value="Anasayfa" outcome="index" />
+
+
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <h:link class = "nav-link pl-3" style="color: white;" value="Hakkımızda" outcome="hakkimizda" />
+
+                        </li>
+                        
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="Ürünlerimiz" outcome="urunler" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="Galeri" outcome="galeri" />
+
+                        </li>
+                       
+                        <li class="nav-item ">
+                            <h:link class = "nav-link pl-3" style="color: white;" value="Fiyat Listesi" outcome="fiyatListesi" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="Online Randevu" outcome="onlineRandevu" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="İş Başvurusu" outcome="isBasvurusu" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="İletişim" outcome="iletisim" />
+
+                        </li>
+
+                    </ul>
+                </div>
+               
+                <div align="right">
+                    <h:link rendered="#{!LoginBean.loggedIn}" class="btn btn-dark animated bounceInLeft" style="margin-right: 5px;" value = "Üye Ol" outcome = "uyeOl" />
+                    <h:link rendered="#{!LoginBean.loggedIn}"  class="btn btn-dark animated bounceInLeft" style="margin-right: 5px;" value = "Giriş Yap" outcome = "girisYap" />
+                    <h:link rendered="#{!LoginBean.loggedIn}"  class="btn btn-dark animated bounceInLeft" value = "Admin" outcome = "admin" />
+
+                </div>
+                
+                <div>
+                    <h:outputText rendered="#{LoginBean.loggedIn}" value="#{LoginBean.ad}"></h:outputText>       
+                    <h:outputText  rendered="#{LoginBean.loggedIn}" value="#{LoginBean.soyad}"></h:outputText> 
+                    <h:link   rendered="#{LoginBean.loggedIn}" class="btn btn-dark animated bounceInLeft " style="margin-right: 5px;" value="Şifre Değiştirme" outcome="sifreDegistirme"/>
+                    <h:commandLink   rendered="#{LoginBean.loggedIn}" class="btn btn-dark animated bounceInLeft " style="margin-right: 5px;" action="#{LoginBean.doLogout()}" >Çıkış Yap</h:commandLink>
+                   
+                </div>
+                
+            </nav>
+        </h:form>
+        
+        
+        <h:form>
+        <h3 style="color:#fafbfb; background-color:#68b9cb; margin-left: 15px; margin-right: 185px; margin-top: 15px; margin-bottom: 20px;
+            letter-spacing: 2px;text-shadow: 3px 2px #0c6478;">GALERİ</h3>
+        
+        <div>
+            <img src="https://guzelliksirlarim.org/wp-content/uploads/2017/11/dalgali-sac-kesim-modeli1.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="http://www.kadincasayfa.com/wp-content/uploads/2011/01/su-dalgas%C4%B1-sa%C3%A7-modelleri.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://hthayat.haberturk.com/im/2016/12/22/ver1482406547/1043575_620x360.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="http://www.kadincasayfa.com/wp-content/uploads/2011/01/2015-su-dalgas%C4%B1.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://www.stylekadin.com/wp-content/uploads/2014/04/su-dalgas%C4%B1-sa%C3%A7-modelleri-3.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://www.kadinlarkulubu.com/forum/attachments/retro_dalgali_sac_modelleri_2018-11-jpg.2082736/"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://www.trendlervemoda.com/wp-content/uploads/2018/10/daginik-topuz-sac-modelleri-2019.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://www.trendlervemoda.com/wp-content/uploads/2019/02/gelin-topuz-sac-modelleri-2019-2020.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="http://www.kadinveorgu.com/wp-content/uploads/2015/08/daginik-topuz-gelin-sac-modelleri-2015.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://www.trendlervemoda.com/wp-content/uploads/2018/10/orgulu-daginik-topuz-modelleri-2018-2019.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://www.dugunbuketi.com/wp-content/uploads/2017/04/kisa-gelin-saci-modeli-13.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://www.dugunbuketi.com/wp-content/uploads/2017/04/kisa-gelin-saci-modeli-14-400x400.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://www.trendlervemoda.com/wp-content/uploads/2019/02/gelin-daginik-topuz-modelleri-2019.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://sacsirlari.blob.core.windows.net/uploads/51cc1b2f-c60c-45e8-81ab-10bb22474704.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://img.letgo.com/images/ea/bb/c1/a9/eabbc1a9e1af0c224a71a1441ad2566c.jpeg?impolicy=img_600"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://scontent-atl3-1.cdninstagram.com/vp/adee1267882d6ee68ee7e7cf38ea38e3/5D2F638C/t51.2885-15/e35/45308663_2350374008338358_7768567263685698186_n.jpg?_nc_ht=scontent-atl3-1.cdninstagram.com"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://saclarimveben.com/wp-content/uploads/2016/05/ombre_sac_modelleri_2016-6.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://i.pinimg.com/736x/2d/f8/7c/2df87c4df087e403170340bbe34728c1.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://www.gigbi.com/blog/wp-content/uploads/2016/08/ombre-sac-renkleri-5.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://st2.myideasoft.com/shop/bl/44/myassets/products/798/245dd5c5-bf65-4e88-b9e3-e54ab150aa42_min.jpg?revision=1533043056"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="http://acilskirpik.com/wp-content/uploads/2017/12/foto-galeri-7.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://static.makyajmag.com/2017/11/evde-manikur-pedikur-nasil-yapilir-tirnak-bakimi-07-564x435.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://www.inanirestetisyenlik.com/Assets/Images/tirnak_susleme_manikur_pedikur_kursu14236871340828.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://s3.eu-central-1.amazonaws.com/kr-s1/181571148cf6aab0dc7d50cd7d38b35c22724f3c.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://ratatum.com/wp-content/uploads/2018/02/38-3.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="http://cigdemelifguzellikmerkezicom.com/wp-content/uploads/2017/06/porselen-makyaj04-1024x640.jpg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src="https://yenivatangazetesi.com/wp-content/uploads/photo-1513325631248-abd221e009a0-728x410.jpeg"  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src=""  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src=""  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src=""  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src=""  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src=""  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src=""  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            <img src=""  style="width:300px;margin-left: 15px;margin-right: 20px;margin-bottom: 20px; margin-top: 15px;"></img>
+            
+            
+        </div>
+        </h:form>
+        
+        
+       
+        
+    </h:body>
+    
+
+</html>
+

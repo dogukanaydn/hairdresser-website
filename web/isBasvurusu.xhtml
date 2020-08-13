@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>İş Başvurusu</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css%22%3E"></link>
+    </h:head>
+    <h:body style="background-color: #aad3dc;">
+
+
+        <h:form>
+            
+            <nav class="navbar navbar-expand-sm navbar-light bg-info m-0 sticky-top">
+                <a class="navbar-brand" href="#">
+                    <img src="https://cdn.dribbble.com/users/274427/screenshots/3999728/dribble_04.jpg" alt="logo" style="width:100px;"></img>
+                </a>
+                <h:link class="navbar-brand" style="color: white;" value="Anasayfa" outcome="index" />
+
+
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <h:link class = "nav-link pl-3" style="color: white;" value="Hakkımızda" outcome="hakkimizda" />
+
+                        </li>
+                        
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="Ürünlerimiz" outcome="urunler" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="Galeri" outcome="galeri" />
+
+                        </li>
+                       
+                        <li class="nav-item ">
+                            <h:link class = "nav-link pl-3" style="color: white;" value="Fiyat Listesi" outcome="fiyatListesi" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="Online Randevu" outcome="onlineRandevu" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="İş Başvurusu" outcome="isBasvurusu" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="İletişim" outcome="iletisim" />
+
+                        </li>
+
+                    </ul>
+                </div>
+               
+                <div align="right">
+                    <h:link rendered="#{!LoginBean.loggedIn}" class="btn btn-dark animated bounceInLeft" style="margin-right: 5px;" value = "Üye Ol" outcome = "uyeOl" />
+                    <h:link rendered="#{!LoginBean.loggedIn}"  class="btn btn-dark animated bounceInLeft" style="margin-right: 5px;" value = "Giriş Yap" outcome = "girisYap" />
+                    <h:link rendered="#{!LoginBean.loggedIn}"  class="btn btn-dark animated bounceInLeft" value = "Admin" outcome = "admin" />
+
+                </div>
+                
+                <div>
+                    <h:outputText rendered="#{LoginBean.loggedIn}" value="#{LoginBean.ad}"></h:outputText>       
+                    <h:outputText  rendered="#{LoginBean.loggedIn}" value="#{LoginBean.soyad}"></h:outputText> 
+                    <h:link   rendered="#{LoginBean.loggedIn}" class="btn btn-dark animated bounceInLeft " style="margin-right: 5px;" value="Şifre Değiştirme" outcome="sifreDegistirme"/>
+                    <h:commandLink   rendered="#{LoginBean.loggedIn}" class="btn btn-dark animated bounceInLeft " style="margin-right: 5px;" action="#{LoginBean.doLogout()}" >Çıkış Yap</h:commandLink>
+                   
+                </div>
+                
+            </nav>
+            <br></br>
+            <br></br>
+
+            <div align="center">
+                <style>
+                    .yazi{
+                        font-family: Verdana;
+                        font-size: 20px;
+                        letter-spacing: 1px;
+                        color:black;
+                    }
+                    a {
+                        color: blue;
+                    }
+
+                </style>
+
+                <h:form>
+                    <h1 style="color:black;margin-left:30px;">İş Başvuru Formu</h1>
+                    <h:panelGrid id = "panel" columns = "2" border ="10"  cellpadding = "10" cellspacing = "1">
+
+                        <p class="yazi">Ad </p>
+                        <h:inputText id="adInputText" required="true" requiredMessage="Ad giriniz!" value="#{IsBasvuru.ad}"/>
+
+                        <p class="yazi">Soyad </p>
+                        <h:inputText id="soyadInputText" required="true" requiredMessage="Soyad giriniz!" value="#{IsBasvuru.soyad}"/>
+
+                        <p class="yazi">Telefon </p>
+                        <h:inputText id="phoneInputText" required="true"
+                                     requiredMessage="Geçerli telefon numarası giriniz!"
+                                     value="#{IsBasvuru.telefon}"/>
+
+
+                        <p class="yazi">E-Posta </p>
+                        <h:inputText id="emailInputText" required="true"
+                                     requiredMessage="Geçerli e-posta adresi giriniz!"
+                                     value="#{IsBasvuru.eposta}"/>
+
+                        <p class="yazi">Doğum Tarihi </p>
+                        <h:inputText id="dogumTarihiInputText" required="true" requiredMessage="Doğum tarihi giriniz!" value="#{IsBasvuru.dogum_tarihi}"/>
+
+                        <p class="yazi">Pozisyon </p>
+                        <h:selectOneMenu value = "#{IsBasvuru.pozisyon}"> 
+                            <f:selectItem itemValue = "Usta" itemLabel = "Usta" /> 
+                            <f:selectItem itemValue = "Kalfa" itemLabel = "Kalfa" /> 
+                            <f:selectItem itemValue = "Asistan" itemLabel = "Asistan" /> 
+                            <f:selectItem itemValue = "Makyöz" itemLabel = "Makyöz" /> 
+                            <f:selectItem itemValue = "Servis Personeli" itemLabel = "Servis Personeli"/>
+                            <f:selectItem itemValue = "Kasa Görevlisi" itemLabel = "Kasa Görevlisi" />
+                            <f:selectItem itemValue = "Vale" itemLabel = "Vale" />     
+                        </h:selectOneMenu>  
+
+                        <p class="yazi">Cinsiyet </p>
+                        <h:selectOneRadio value="#{IsBasvuru.cinsiyet}">
+                            <f:selectItem itemValue = "Erkek" itemLabel = "Erkek" /> 
+                            <f:selectItem itemValue = "Kadın" itemLabel = "Kadın" /> 
+                        </h:selectOneRadio>
+
+                        <p class="yazi">Adres </p>
+                        <h:inputTextarea id="adresInputText" required="true" requiredMessage="Adres giriniz!" value="#{IsBasvuru.adres}"/>
+
+                        <p class="yazi">Eğitim Durumu </p>
+                        <h:selectOneMenu value = "#{IsBasvuru.egitim_durumu}"> 
+                            <f:selectItem itemValue = "Lise" itemLabel = "Lise" /> 
+                            <f:selectItem itemValue = "Ön Lisans" itemLabel = "Ön Lisans" /> 
+                            <f:selectItem itemValue = "Lisans" itemLabel = "Lisans" /> 
+                            <f:selectItem itemValue = "Y.Lisans" itemLabel = "Y.Lisans" /> 
+                            <f:selectItem itemValue = "Doktora" itemLabel = "Doktora"/>
+                        </h:selectOneMenu> 
+
+                        <p class="yazi">İş Deneyimleriniz </p>
+
+                        <h:inputTextarea id="isDeneyimiInputText"  value="#{IsBasvuru.is_deneyimi}"/>
+
+
+
+                    </h:panelGrid>
+                    <br></br>
+
+
+                    <h:commandButton class="btn btn-info" value = "Başvur" action="#{IsBasvuru.basvur}" />
+
+
+
+
+
+
+                </h:form>
+
+
+
+
+            </div>
+        </h:form>
+        
+    </h:body>
+</html>
+

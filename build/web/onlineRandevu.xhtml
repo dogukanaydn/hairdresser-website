@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Online Randevu</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css%22%3E"></link>
+    </h:head>
+    <h:body style="background-color: #aad3dc;">
+
+
+        <h:form>
+            
+            <nav class="navbar navbar-expand-sm navbar-light bg-info m-0 sticky-top">
+                <a class="navbar-brand" href="#">
+                    <img src="https://cdn.dribbble.com/users/274427/screenshots/3999728/dribble_04.jpg" alt="logo" style="width:100px;"></img>
+                </a>
+                <h:link class="navbar-brand" style="color: white;" value="Anasayfa" outcome="index" />
+
+
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <h:link class = "nav-link pl-3" style="color: white;" value="Hakkımızda" outcome="hakkimizda" />
+
+                        </li>
+                        
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="Ürünlerimiz" outcome="urunler" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="Galeri" outcome="galeri" />
+
+                        </li>
+                       
+                        <li class="nav-item ">
+                            <h:link class = "nav-link pl-3" style="color: white;" value="Fiyat Listesi" outcome="fiyatListesi" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="Online Randevu" outcome="onlineRandevu" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="İş Başvurusu" outcome="isBasvurusu" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="İletişim" outcome="iletisim" />
+
+                        </li>
+
+                    </ul>
+                </div>
+               
+                <div align="right">
+                    <h:link rendered="#{!LoginBean.loggedIn}" class="btn btn-dark animated bounceInLeft" style="margin-right: 5px;" value = "Üye Ol" outcome = "uyeOl" />
+                    <h:link rendered="#{!LoginBean.loggedIn}"  class="btn btn-dark animated bounceInLeft" style="margin-right: 5px;" value = "Giriş Yap" outcome = "girisYap" />
+                    <h:link rendered="#{!LoginBean.loggedIn}"  class="btn btn-dark animated bounceInLeft" value = "Admin" outcome = "admin" />
+
+                </div>
+                
+                <div>
+                    <h:outputText rendered="#{LoginBean.loggedIn}" value="#{LoginBean.ad}"></h:outputText>       
+                    <h:outputText  rendered="#{LoginBean.loggedIn}" value="#{LoginBean.soyad}"></h:outputText> 
+                    <h:link   rendered="#{LoginBean.loggedIn}" class="btn btn-dark animated bounceInLeft " style="margin-right: 5px;" value="Şifre Değiştirme" outcome="sifreDegistirme"/>
+                    <h:commandLink   rendered="#{LoginBean.loggedIn}" class="btn btn-dark animated bounceInLeft " style="margin-right: 5px;" action="#{LoginBean.doLogout()}" >Çıkış Yap</h:commandLink>
+                   
+                </div>
+                
+            </nav>
+            <br></br>
+
+            <div class=" border border-light p-5 col-sm-4 container" >
+                <p class="h4 mb-4 text-center">ONLİNE RANDEVU</p>
+                <h:inputText  class="form-control mb-4" a:placeholder="Ad" value="#{online.ad}"/>
+
+                <h:inputText  class="form-control mb-4" a:placeholder="Soyad" value="#{online.soyad}"/>
+
+                <h:inputText  id="telefonInputText" class="form-control mb-4" a:placeholder="Telefon numarası" value="#{online.telefon}"/>
+
+
+                <h:inputText id="emailInputText" class="form-control mb-4" a:placeholder="Eposta" value="#{online.eposta}"/>
+
+                <p> Sizinle Nasıl İletişime Geçelim?</p>
+                <h:selectOneRadio value="#{online.isekli}">
+                    <f:selectItem itemValue = "Telefon" itemLabel = "Telefon" /> 
+                    <f:selectItem itemValue = "Eposta" itemLabel = "Eposta" /> 
+                </h:selectOneRadio>
+
+                <P>Randevu Almak İstediğiniz Şube:</P>
+                <h:selectOneMenu  class="form-control mb-4" value = "#{online.sube}"> 
+                    <f:selectItem itemValue = "İstanbul" itemLabel = "İstanbul" /> 
+                    <f:selectItem itemValue = "İzmir" itemLabel = "İzmir" /> 
+                    <f:selectItem itemValue = "Ankara" itemLabel = "Ankara" /> 
+
+                </h:selectOneMenu> 
+
+                <P>Randevu Almak İstediğiniz Tarih:</P>
+                <h:inputText id="tarihInputText" class="form-control mb-4" a:placeholder="gün-ay-yıl" value="#{online.tarih}"/>
+
+                <P>Randevu Almak istediğiniz Saat:</P>
+                <h:inputText id="saatInputText" class="form-control mb-4" a:placeholder="00:00" value="#{online.saat}"/>
+
+
+
+                <P>İstediğiniz Hizmet:</P>
+                <h:selectOneMenu class="form-control mb-4" value = "#{online.hizmet}"> 
+                    <f:selectItem itemValue = "Saç Kesim" itemLabel = "Saç Kesim" /> 
+                    <f:selectItem itemValue = "Fön" itemLabel = "Fön" /> 
+                    <f:selectItem itemValue = "Topuz" itemLabel = "Topuz" /> 
+                    <f:selectItem itemValue = "Maşa" itemLabel = "Maşa" /> 
+                    <f:selectItem itemValue = "Dip Boya" itemLabel = "Dip Boya" /> 
+                    <f:selectItem itemValue = "Röfle" itemLabel = "Röfle"/>
+                    <f:selectItem itemValue = "Keratin Bakım" itemLabel = "Keratin Bakım" />
+                    <f:selectItem itemValue = "Eyeliner " itemLabel = "Eyeliner" />     
+                </h:selectOneMenu> 
+
+                <h:commandButton class="btn btn-info" value = "Gönder" action="#{online.gonder}" />
+
+
+
+
+
+            </div>
+
+
+
+        </h:form>
+
+
+    </h:body>
+
+</html>
+

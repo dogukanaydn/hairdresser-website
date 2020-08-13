@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Giriş Yap</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css%22%3E"></link>
+    </h:head>
+    <h:body style="background-color: #aad3dc;">
+
+
+        <h:form>
+            
+            <nav class="navbar navbar-expand-sm navbar-light bg-info m-0 sticky-top">
+                <a class="navbar-brand" href="#">
+                    <img src="https://cdn.dribbble.com/users/274427/screenshots/3999728/dribble_04.jpg" alt="logo" style="width:100px;"></img>
+                </a>
+                <h:link class="navbar-brand" style="color: white;" value="Anasayfa" outcome="index" />
+
+
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <h:link class = "nav-link pl-3" style="color: white;" value="Hakkımızda" outcome="hakkimizda" />
+
+                        </li>
+                        
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="Ürünlerimiz" outcome="urunler" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="Galeri" outcome="galeri" />
+
+                        </li>
+                       
+                        <li class="nav-item ">
+                            <h:link class = "nav-link pl-3" style="color: white;" value="Fiyat Listesi" outcome="fiyatListesi" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="Online Randevu" outcome="onlineRandevu" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="İş Başvurusu" outcome="isBasvurusu" />
+
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link pl-3" style="color: white;" value="İletişim" outcome="iletisim" />
+
+                        </li>
+
+                    </ul>
+                </div>
+               
+                <div align="right">
+                    <h:link rendered="#{!LoginBean.loggedIn}" class="btn btn-dark animated bounceInLeft" style="margin-right: 5px;" value = "Üye Ol" outcome = "uyeOl" />
+                    <h:link rendered="#{!LoginBean.loggedIn}"  class="btn btn-dark animated bounceInLeft" style="margin-right: 5px;" value = "Giriş Yap" outcome = "girisYap" />
+                    <h:link rendered="#{!LoginBean.loggedIn}"  class="btn btn-dark animated bounceInLeft" value = "Admin" outcome = "admin" />
+
+                </div>
+                
+                <div>
+                    <h:outputText rendered="#{LoginBean.loggedIn}" value="#{LoginBean.ad}"></h:outputText>       
+                    <h:outputText  rendered="#{LoginBean.loggedIn}" value="#{LoginBean.soyad}"></h:outputText> 
+                    <h:link   rendered="#{LoginBean.loggedIn}" class="btn btn-dark animated bounceInLeft " style="margin-right: 5px;" value="Şifre Değiştirme" outcome="sifreDegistirme"/>
+                    <h:commandLink   rendered="#{LoginBean.loggedIn}" class="btn btn-dark animated bounceInLeft " style="margin-right: 5px;" action="#{LoginBean.doLogout()}" >Çıkış Yap</h:commandLink>
+                   
+                </div>
+                
+            </nav>
+        </h:form>
+
+        <h:form>
+            <div align="center">
+                <style>
+                    .yazi{
+                        font-family: Verdana;
+                        font-size: 20px;
+                        letter-spacing: 1px;
+                        color:black;
+                    }
+                    a {
+                        color: blue;
+                    }
+
+                </style>
+                <h1 style="color:black;margin-left:30px;">Giriş Yap</h1>
+                <h:panelGrid id = "panel" columns = "2" border ="10"  cellpadding = "10" cellspacing = "1">
+                    <p class="yazi">E-Posta </p>
+                    <h:inputText id="emailInputText" required="true"
+                                 requiredMessage="Please enter a valid e-mail address"
+                                 value="#{LoginBean.username}" 
+                                 validatorMessage="Invalid e-mail address format">
+                    </h:inputText>
+
+                    <p class="yazi">Şifre </p>
+                    <h:inputSecret id="şifreInputText" required="true" requiredMessage="Şifre giriniz!" value ="#{LoginBean.password}" />
+                </h:panelGrid>
+                <h:commandButton class="btn btn-info" value = "Giriş Yap" action="#{LoginBean.doLogin()}" />
+            </div>
+        </h:form>
+    </h:body>
+</html>
